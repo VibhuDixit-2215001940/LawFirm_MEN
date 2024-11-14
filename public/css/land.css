@@ -38,6 +38,39 @@
   --z-tooltip: 10;
   --z-fixed: 100;
 }
+.button__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #007bff; /* Change to your preferred primary color */
+  color: #fff;
+  padding: 6px 12px; /* Reduced padding */
+  font-size: 1.1rem; /* Reduced font size */
+  font-weight: bold;
+  border-radius: 25px; /* Slightly smaller border radius */
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button__header img {
+  width: 28px; /* Reduced width */
+  height: 28px; /* Reduced height */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.button__header:hover {
+  background-color: #0056b3; /* Darker shade for hover */
+  transform: translateY(-2px); /* Slightly less elevation */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.button__header span {
+  margin-left: 5px;
+}
+
 
 @media screen and (min-width: 968px) {
   :root {

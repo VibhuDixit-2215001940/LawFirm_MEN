@@ -9,7 +9,7 @@ const cors = require('cors');
 const path = require('path');
 const loginRoutes = require('./routes/login');
 const checkerRoutes = require('./routes/checker'); 
-
+const adminRoutes = require('./routes/admin');
 
 app.use(session({// Session middleware should be initialized before routes
     secret: 'secret_key',
@@ -23,12 +23,12 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(express.urlencoded({ extended: true }));  // Use express.urlencoded to parse URL-encoded data
 app.use(bodyParser.json());  // Parse JSON data
 
 
 app.use(loginRoutes);// Use routes
+app.use(adminRoutes)
 app.use(checkerRoutes);  
 
 
@@ -39,6 +39,11 @@ mongoose.connect('mongodb://localhost:27017/lawfirm')// MongoDB connection
 
 app.get('/', (req, res) => {// Render home page
     res.render('home/index');  
+});
+
+
+app.get('/Error', (req, res) => {// 404 route
+    res.render('404/index');  // Render 404 page if route doesn't exist
 });
 
 

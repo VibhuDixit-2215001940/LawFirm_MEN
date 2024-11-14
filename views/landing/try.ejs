@@ -9,18 +9,65 @@
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="/css/land.css">
         <title>न्यायसाधन</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="/css/owl.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+        <style>
+            /* Internal CSS */
+            .services__container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+    
+            .services__data {
+                background-color: var(--container-color);
+                border-radius: 8px;
+                padding: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s;
+            }
+    
+            .services__data:hover {
+                transform: scale(1.05);
+            }
+    
+            .services__subtitle {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+    
+            .services__description {
+                font-size: 1em;
+                margin-bottom: 15px;
+            }
+    
+            button.button-link {
+                padding: 10px 20px;
+                background-color: #90f697;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 1em;
+                text-align: center;
+            }
+    
+            button.button-link:hover {
+                background-color: #0056b3;
+            }
+        </style>
     </head>
     <body>
         <!--=============== HEADER ===============-->
         <header class="header" id="header">
             <nav class="nav container">
-                <a href="#" class="nav__logo" style="font-size: 3rem;
-                letter-spacing: 0.1rem;
-                text-align: center;
-                text-transform: uppercase;
-                margin-bottom: 2rem;
-                margin-top: 4%;">न्यायसाधन</a>
-
+                <a href="#" class="nav__logo" style="font-size: 3rem;letter-spacing: 0.1rem;text-align: center;text-transform: uppercase;margin-bottom: 2rem;margin-top: 4%;">न्यायसाधन</a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
@@ -35,108 +82,69 @@
                         <li class="nav__item">
                             <a href="#contact" class="nav__link">Contact us</a>
                         </li>
-
                         <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
                     </ul>
                 </div>
-
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-grid-alt'></i>
                 </div>
-
-                <a href="/AdminLogin" class="button button__header">Admin</a>
+                <a href="" class="button button__header"><img src="/images/profile-header.jpg" style="border-radius: 30%;margin-right: 10px;" alt=""><span>Profile</span></a>
             </nav>
         </header>
-
         <main class="main">
-            <!--=============== HOME ===============-->
-            <section class="home section" id="home">
-                <div class="home__container container grid">
-                    <div class="home__data">
-                        <h1 class="home__title">E-Portal for Efficient <br> Case Management</h1>
-                        <p class="home__description">Streamline and manage your legal cases digitally with our user-friendly e-portal.</p>
-                        <a href="/login" class="button">Get Started</a>
-                    </div>  
-                    <div><img src="/images/main.png" alt=""></div> 
-                </div>
-            </section>
-
-            <!--=============== ABOUT ===============-->
-            <section class="about section container" id="about">
-                <div class="about__container grid">
-                    <div><img src="/images/report.png" alt=""></div>
-                    <div class="about__data">
-                        <h2 class="section__title-center">Streamlined Issue Reporting for <br> Inmates</h2>
-                        <p class="about__description">Enabling prisoners to digitally report issues or request amenities, with seamless tracking by prison authorities for timely resolution.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!--=============== SECURITY ===============-->
-            <section class="security section container">
-                <div class="security__container grid">
-                    <div class="security__data">
-                        <h2 class="section__title-center">Your Justice Is Our <br> Priority</h2>
-                        <p class="security__description">We ensure the utmost confidentiality and security in handling your legal matters. Explore how we safeguard your rights—watch our process in action.
-                        </p>
-                    </div>
-                    <div><img src="/images/justice.png" alt=""></div>
-                </div>
-            </section>
-
-            <!--=============== SERVICES ===============-->
             <section class="services section container" id="services">
-                <h2 class="section__title">Some Services We <br> Offer</h2>
+                <h2 class="section__title">Select Services We <br> Offer</h2>
                 <div class="services__container grid">
                     <div class="services__data">
                         <h3 class="services__subtitle">Legal Consultations</h3>
                         <div><img src="/images/legal1.png" alt=""></div>
                         <p class="services__description">Get expert advice on your legal matters with ease.</p>
                         <div>
-                            <a href="#" class="button button-link">Learn More</a>
+                            <button class="button button-link">Get Started</button>
                         </div>
                     </div>
-
                     <div class="services__data">
                         <h3 class="services__subtitle">Case Management</h3>
                         <div><img src="/images/case.png" alt=""></div>
                         <p class="services__description">Track and manage your cases seamlessly through our platform.</p>
                         <div>
-                            <a href="#" class="button button-link">Learn More</a>
+                            <button class="button button-link">Get Started</button>
                         </div>
                     </div>
-
                     <div class="services__data">
                         <h3 class="services__subtitle">Document Review</h3>
                         <div><img src="/images/rev.png" alt=""></div>
                         <p class="services__description">Quick and thorough review of legal documents to ensure accuracy.</p>
                         <div>
-                            <a href="#" class="button button-link">Learn More</a>
+                            <button class="button button-link">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Dispute Resolution</h3>
+                        <div><img src="/images/desp.png" alt=""></div>
+                        <p class="services__description">Handling mediation, arbitration, and negotiation to resolve conflicts outside of court.</p>
+                        <div>
+                            <button class="button button-link">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Real Estate Transactions</h3>
+                        <div><img src="/images/realstat.png" alt=""></div>
+                        <p class="services__description">Managing property purchases, sales, leasing, and disputes.</p>
+                        <div>
+                            <button class="button button-link">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Family Law</h3>
+                        <div><img src="/images/family.png" alt=""></div>
+                        <p class="services__description">Handling cases related to divorce, child custody, adoption, and domestic violence.</p>
+                        <div>
+                            <button class="button button-link">Get Started</button>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!--=============== APP ===============-->
-            <section class="app section container">
-                <div class="app__container grid">
-                    <div><img src="/images/track.png" alt=""></div>
-                    <div class="app__data">
-                        <h2 class="section__title-center">Track Your Case <br> Anytime, Anywhere</h2>
-                        <p class="app__description">With our platform, you can monitor the progress of your legal matters, from initial filing to resolution. Stay informed today!</p>
-                        <div class="app__buttons">
-                            <a href="#" class="button button-flex">
-                                <i class='bx bxl-apple button__icon'></i> App Store
-                            </a>
-                            <a href="#" class="button button-flex">
-                                <i class='bx bxl-play-store button__icon' ></i> Google Play
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!--=============== CONTACT US ===============-->
             <section class="contact section container" id="contact">
                 <div class="contact__container grid">
