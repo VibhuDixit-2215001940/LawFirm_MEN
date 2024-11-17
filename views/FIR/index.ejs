@@ -3,19 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--=============== BOXICONS ===============-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="shortcut icon" href="/images/logo44.png" type="image/x-icon">
-        <!--=============== CSS ===============-->
         <link rel="stylesheet" href="/css/land.css">
         <title>न्यायसाधन</title>
         <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/css/fontawesome.css">
-    <link rel="stylesheet" href="/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="/css/owl.css">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <style>
             /* Internal CSS */
             .services__container {
@@ -62,6 +54,75 @@
                 background-color: #0056b3;
             }
         </style>
+        <style>/* Center the form container */
+            .form-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin-top: -100px;
+            }
+            
+            /* Form styling */
+            .form-box {
+                width: 50%; /* Adjust the width as necessary for the desired size */
+                max-width: 600px;
+                background-color: rgb(247, 245, 245);
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                box-sizing: border-box;
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            /* On hover, make the box scale a little */
+            .form-box:hover {
+                transform: scale(1.05);
+            }
+            
+            /* Form title */
+            .form-box h3 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 1.5em;
+                color: #333;
+            }
+            
+            /* Input field styling */
+            .form-box input,
+            .form-box select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 1em;
+            }
+            
+            /* Button styling */
+            .form-box button {
+                width: 100%;
+                padding: 10px;
+                background-color: #90f697;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 1.1em;
+                color: white;
+                transition: background-color 0.3s ease;
+            }
+            
+            /* Button hover effect */
+            .form-box button:hover {
+                background-color: #45a049;
+            }
+            
+            /* Input label styling */
+            .form-box label {
+                font-size: 1em;
+                color: #555;
+            }
+            </style>
     </head>
     <body>
         <!--=============== HEADER ===============-->
@@ -92,82 +153,12 @@
             </nav>
         </header>
         <main class="main">
-            <!--=============== WELCOME US ===============-->
+            <!--=============== REGISTER E-FIR ===============-->
             <section class="contact section container" id="contact">
                 <div class="contact__container grid">
-                    <img src="/images/dust.png" style="height: 100%;width: 100%;">
+                    <img src="/images/person.png" style="height: 90%;width: 90%;">
                     <div class="contact__content">
-                        <h2 class="section__title-center">Welcome <br> <%= userName %> !</h2>
-                        <p class="contact__description">You can contact us from here, you can write to us, 
-                            call us or visit our service center, we will gladly assist you.</p>
-                    </div>
-                    <div class="contact__content">
-                        <a href="#" class="button">Request Call!</a>
-                        <a href="/FIR" class="button" style="margin-top: 4%;padding-left: 11%;padding-right: 11%;">Register e-FIR!</a>
-                    </div>
-                </div>
-            </section>
-            <!--=============== SERVICES US ===============-->
-            <section class="services section container" id="services">
-                <h2 class="section__title">Select Services We <br> Offer</h2>
-                <div class="services__container grid">
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Legal Consultations</h3>
-                        <div><img src="/images/legal1.png" alt=""></div>
-                        <p class="services__description">Get expert advice on your legal matters with ease.</p>
-                        <div>
-                            <button class="button button-link">Get Started</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Case Management</h3>
-                        <div><img src="/images/case.png" alt=""></div>
-                        <p class="services__description">Track and manage your cases seamlessly through our platform.</p>
-                        <div>
-                            <button class="button button-link">Get Started</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Document Review</h3>
-                        <div><img src="/images/rev.png" alt=""></div>
-                        <p class="services__description">Quick and thorough review of legal documents to ensure accuracy.</p>
-                        <div>
-                            <button class="button button-link">Get Started</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Dispute Resolution</h3>
-                        <div><img src="/images/desp.png" alt=""></div>
-                        <p class="services__description">Handling mediation, arbitration, and negotiation to resolve conflicts outside of court.</p>
-                        <div>
-                            <button class="button button-link">Get Started</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Real Estate Transactions</h3>
-                        <div><img src="/images/realstat.png" alt=""></div>
-                        <p class="services__description">Managing property purchases, sales, leasing, and disputes.</p>
-                        <div>
-                            <button class="button button-link">Get Started</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Family Law</h3>
-                        <div><img src="/images/family.png" alt=""></div>
-                        <p class="services__description">Handling cases related to divorce, child custody, adoption, and domestic violence.</p>
-                        <div>
-                            <button class="button button-link">Get Started</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--=============== DOWNLOAD BROCHURE ===============-->
-            <section class="contact section container" id="contact">
-                <div class="contact__container grid">
-                    <img src="/images/broch.jpeg" style="height: 90%;width: 90%;">
-                    <div class="contact__content">
-                        <h2 class="section__title-center">Listen!!<br> Username</h2>
+                        <h2 class="section__title-center">Listen<br><%= userName %> !</h2>
                         <p class="contact__description">Download our brochure to learn more about the expert legal services we offer and how we can assist you.</p>
                     </div>
                     <div class="contact__content" style="padding-right: 20%;">
@@ -175,36 +166,66 @@
                     </div>
                 </div>
             </section>
-            <!--=============== Cases Winn ===============-->
-            <section class="services section container" id="services">
-                <h2 class="section__title">Cases Winn!</h2>
-                <div class="services__container grid">
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Legal Consultations</h3>
-                        <div><img src="/images/win1.png" alt=""></div>
-                        <p class="services__description">Get expert advice on your legal matters with ease.</p>
-                        <div>
-                            <button class="button button-link">View Case</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Case Management</h3>
-                        <div><img src="/images/win3.png" alt=""></div>
-                        <p class="services__description">Track and manage your cases seamlessly through our platform.</p>
-                        <div>
-                            <button class="button button-link">View Case</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Document Review</h3>
-                        <div><img src="/images/win2.png" alt=""></div>
-                        <p class="services__description">Quick and thorough review of legal documents to ensure accuracy.</p>
-                        <div>
-                            <button class="button button-link">View Case</button>
-                        </div>
-                    </div>
+            
+            <!-- Form Container -->
+    <div class="form-container">
+        <!-- Form Box -->
+        <div class="form-box">
+            <form id="contact-form" action="/FIR" method="post">
+                <h3>File an Incident Report</h3>
+                <div>
+                    <label><span class="lead">First Name</span>
+                        <input placeholder="John" type="text" name="firstName" required>
+                    </label>
                 </div>
-            </section>
+                <div>
+                    <label><span class="lead">Last Name</span>
+                        <input placeholder="Doe" type="text" name="lastName" required>
+                    </label>
+                </div>
+                <div>
+                    <label><span class="lead">Email</span>
+                        <input placeholder="john.doe@google.com" type="email" name="email" required>
+                    </label>
+                </div>
+                <div>
+                    <label><span class="lead">Your Address</span>
+                        <input placeholder="1000 Main St" type="text" name="address" required>
+                    </label>
+                </div>
+                <div>
+                    <label><span class="lead">City</span>
+                        <input placeholder="Houston" type="text" name="city" required>
+                    </label>
+                </div>
+                <div>
+                    <label><span class="lead">State</span>
+                        <select name="state" id="state" required>
+                            <option>Delhi</option>
+                            <option>UP</option>
+                            <option>J&K</option>
+                            <option>Maharashtra</option>
+                            <option>Rajasthan</option>
+                            <option>Gujrat</option>
+                            <option>Bihar</option>
+                            <option>Keral</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <label><span class="lead">Phone</span>
+                        <input placeholder="+91 xxx-xxx-xxx-x" type="tel" name="phone" required>
+                    </label>
+                </div>
+                <div>
+                    <button name="submit" type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+                  
+              
             <!--=============== CONTACT US ===============-->
             <section class="contact section container" id="contact">
                 <div class="contact__container grid">

@@ -10,6 +10,7 @@ const path = require('path');
 const loginRoutes = require('./routes/login');
 const checkerRoutes = require('./routes/checker'); 
 const adminRoutes = require('./routes/admin');
+const firRoutes = require('./routes/fir');
 
 app.use(session({// Session middleware should be initialized before routes
     secret: 'secret_key',
@@ -30,6 +31,7 @@ app.use(bodyParser.json());  // Parse JSON data
 app.use(loginRoutes);// Use routes
 app.use(adminRoutes)
 app.use(checkerRoutes);  
+app.use(firRoutes);
 
 
 mongoose.connect('mongodb://localhost:27017/lawfirm')// MongoDB connection

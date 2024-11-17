@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>न्यायसाधन</title>
+    <link rel="stylesheet" href="/css/thanks.css">
+    <link rel="shortcut icon" href="/images/logo44.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</head>
+<body>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card p-4 mt-3">
+           <div class="first d-flex justify-content-between align-items-center mb-3">
+             <div class="info">
+                 <span class="d-block name">Thank you, <%= newComplaint.firstName %></span>
+                 <span class="order" >Order - <%= newComplaint._id.toString().substring(0, 7) %></span>
+                  
+             </div>
+            
+              <img src="/images/goo.png" style="height: 100%;width: 50%;"/>
+               
+ 
+           </div>
+               <div class="detail">
+           <span class="d-block summery">Your E-EIR has been formed.We are reaching to you soon.</span>
+               </div>
+           <hr>
+           <div class="text">
+            <img src="/images/police.png" style="width: 30%;height: 70%;" />
+         <span class="d-block new mb-1" >Raj - Nearest Inspecter</span>
+          </div>
+         <span class="d-block address mb-3">672 Conaway Street Bryantiville Massachusetts 02327</span>
+           <div class="  money d-flex flex-row mt-2 align-items-center">
+             <span>For more details -- 7500211114</span> 
+                </div>
+                <div class="last d-flex align-items-center mt-3">
+                <a href="/land"><span class="address-line">Back</span></a>
+                </div>
+         </div>
+     </div>
+</body>
+</html>

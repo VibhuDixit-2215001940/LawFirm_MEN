@@ -10,17 +10,16 @@ router.get('/login', (req, res) => {// Render login page
 router.post('/login', async (req, res) => {// Handle login form submission
     const { email, password } = req.body;
     try {
-        const user = await User.findOne({ email });// Find the user by email
+        const user = await User.findOne({ email });
         if (!user) {
             return res.render("404/index");
         }
-        const isMatch = await bcrypt.compare(password, user.password);// Compare passwords
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.render("404/index");
         }
-        // Save the user to the session
-        req.session.user = user;  // Make sure 'user' is being assigned here
-        res.redirect('/land');// Redirect to a different page after login
+        req.session.user = user;  
+        res.redirect('/land');
     } catch (err) {
         console.error(err);
         res.render("404/index");
@@ -48,7 +47,12 @@ router.post('/signup', async (req, res) => {// Handle signup form submission
         res.render("404/index");
     }
 });
-router.get('/land',(req, res) => {
-    res.render('landing/index.ejs')
-})
+router.get('/land', (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/login'); // Redirect if user is not logged in
+    }
+    const userName = req.session.user.username || 'Guest'; // Access username from session
+    res.render('landing/index.ejs', { userName });
+});
+
 module.exports = router;
