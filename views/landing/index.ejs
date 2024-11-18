@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--=============== BOXICONS ===============-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <link rel="shortcut icon" href="/images/logo44.png" type="image/x-icon">
+        
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="/css/land.css">
         <title>न्यायसाधन</title>
+        <link rel="shortcut icon" href="/images/logo44.png" type="image/x-icon">
         <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/css/fontawesome.css">
@@ -88,7 +89,7 @@
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-grid-alt'></i>
                 </div>
-                <a href="" class="button button__header"><img src="/images/profile-header.jpg" style="border-radius: 30%;margin-right: 10px;" alt=""><span><%= userName  %></span></a>
+                <a href="/Profile" class="button button__header"><img src="/images/profile-header.jpg" style="border-radius: 30%;margin-right: 10px;" alt=""><span><%= userName  %></span></a>
             </nav>
         </header>
         <main class="main">
@@ -102,7 +103,7 @@
                             call us or visit our service center, we will gladly assist you.</p>
                     </div>
                     <div class="contact__content">
-                        <a href="#" class="button">Request Call!</a>
+                        <a href="/Call" class="button">Request Call!</a>
                         <a href="/FIR" class="button" style="margin-top: 4%;padding-left: 11%;padding-right: 11%;">Register e-FIR!</a>
                     </div>
                 </div>
@@ -167,7 +168,7 @@
                 <div class="contact__container grid">
                     <img src="/images/broch.jpeg" style="height: 90%;width: 90%;">
                     <div class="contact__content">
-                        <h2 class="section__title-center">Listen!!<br> Username</h2>
+                        <h2 class="section__title-center">Listen!!<br> <%= userName %></h2>
                         <p class="contact__description">Download our brochure to learn more about the expert legal services we offer and how we can assist you.</p>
                     </div>
                     <div class="contact__content" style="padding-right: 20%;">
