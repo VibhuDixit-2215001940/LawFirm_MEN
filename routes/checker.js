@@ -1,28 +1,31 @@
 const express = require('express');
-const router = express.Router(); 
+const router = express.Router();
 
-
-router.get('/check', (req, res) => {// Route to display eligibility check form
-    console.log('Rendering eligibility form');
+router.get('/check', (req, res) => {
     res.render('checker/index.ejs');
 });
 
-
-router.post('/check', (req, res) => {// Route to handle eligibility check form submission
-    const { age, citizenship, education } = req.body;
+router.post('/check', (req, res) => { // Route to handle eligibility check form submission
+    const { age, username, Case, Offense, Date, Bail } = req.body;
+    let x = 2024-Date;
     let isEligible = true;
-    let eligibilityMessage = "You are eligible!";
+    let eligibilityMessage = "You are eligible for bail!";
+
     if (age < 18) {
         isEligible = false;
-        eligibilityMessage = "Sorry, you must be 18 or older.";
-    } else if (citizenship !== 'USA') {
+        eligibilityMessage = "Sorry, you must be 18 or older to be eligible for bail.";
+    } else if (Bail >= 10000) {
         isEligible = false;
-        eligibilityMessage = "Sorry, you must be a US citizen.";
-    } else if (education !== 'High School') {
+        eligibilityMessage = `Sorry, bails is not allowd for <%= Bail %> of amount`;
+    } else if (!Offense || Offense.trim() === "") {
         isEligible = false;
-        eligibilityMessage = "Sorry, you must have at least a high school education.";
+        eligibilityMessage = `Offense type cannot be empty.`;
+    } else if(Case >= 1000 && Case < 10){
+        isEligible = false;
+        eligibilityMessage = `Sorry, bails is not allowed for case no <%= Case %>`;
     }
-    res.json({ isEligible, eligibilityMessage });  // Send the result as a JSON response
+    if(isEligible) res.render('Success/index',{eligibilityMessage});
+    else res.render('Success/fail',{eligibilityMessage});
 });
 
 module.exports = router;

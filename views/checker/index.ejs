@@ -9,12 +9,18 @@
 <body>
     <h1>Eligibility Checker</h1>
     <form action="/check" method="POST">
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" required><br><br>
         <label for="age">Age:</label>
         <input type="number" id="age" name="age" required><br><br>
-        <label for="citizenship">Citizenship:</label>
-        <input type="text" id="citizenship" name="citizenship" required><br><br>
-        <label for="education">Education:</label>
-        <input type="text" id="education" name="education" required><br><br>
+        <label for="Case">Case no.:</label>
+        <input type="number" id="Case" name="Case" required><br><br>
+        <label for="Offense">Offense Type:</label>
+        <input type="text" id="Offense" name="Offense" required><br><br>
+        <label for="Date">Year of Arrest:</label>
+        <input type="date" id="Date" name="Date" required><br><br>
+        <label for="Bail">Bail Amount:</label>
+        <input type="number" id="Bail" name="Bail" required><br><br>
         <button type="submit">Check Eligibility</button>
     </form>
     <script src="/js/checker.js"></script>
