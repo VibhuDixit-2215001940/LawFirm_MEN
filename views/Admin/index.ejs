@@ -115,16 +115,16 @@
         <div class="clear"></div>
         <div class="main-content-info container">
             <div class="card">
-                <h2 class="cus-num cus-comp">10</h2> <!-- Static value for now -->
-                <p>Active Complaints</p>
+                <h2 class="cus-num cus-comp"><%= complainCount %></h2> <!-- Static value for now -->
+                <p>Active FIRs</p>
             </div>
             <div class="card">
-                <h2 class="cus-num cus-ord">150</h2> <!-- Static value for now -->
+                <h2 class="cus-num cus-ord"><%= userCount %></h2> <!-- Static value for now -->
                 <p>Total Users</p>
             </div>
             <div class="card">
-                <h2 class="cus-num cus-bid">5</h2> <!-- Static value for now -->
-                <p>Active Workers</p>
+                <h2 class="cus-num cus-bid"><%= lawyerCount %></h2> <!-- Static value for now -->
+                <p>Active Lawyers</p>
             </div>
             <div class="card">
                 <h2 class="cus-num cus-eve">3</h2> <!-- Static value for now -->
@@ -169,20 +169,24 @@
             <div class="pro-cus">
                 <div class="recent-project">
                     <div class="rec-pro-h">
-                        <h2>Workers</h2>
+                        <h2>Lawyers</h2>
                     </div>
                     <table style="width:100%">
                         <tr>
                             <th>Name</th>
-                            <th>Location</th>
-                            <th>Phone</th>
+                            <th>Wins</th>
+                            <th>&nbsp;&nbsp;&nbsp;Contact</th>
                         </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Mathura</td>
-                            <td>123-456-7890</td>
-                        </tr>
-                        <!-- Add more static rows as needed -->
+                        <% lawyer.forEach(user => { %>
+                            <tr>
+                                <td><%= user.username %> [<%= user.gender %>]</td> <!-- Adjust gender if needed -->
+                                <td>
+                                    <span class="rev-span">&nbsp;&nbsp;&nbsp;<%= user.caseWin %>/<%= user.caseLoss+user.caseWin %></span>
+                                    <span class="green-dot"></span>
+                                </td>
+                                <td class="cnt-info-td">&nbsp;&nbsp;&nbsp;<i class="fa fa-phone"><%= user.phone %></i></td>
+                            </tr>
+                        <% }); %>
                     </table>
                 </div>
             </div>

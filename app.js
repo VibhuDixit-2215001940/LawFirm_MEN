@@ -13,6 +13,7 @@ const adminRoutes = require('./routes/admin');
 const firRoutes = require('./routes/fir');
 const profileRoutes = require('./routes/profile');
 const callRoutes = require('./routes/call');
+const lawyerRoutes = require('./routes/lawyer');
 
 app.use(session({// Session middleware should be initialized before routes
     secret: 'secret_key',
@@ -36,6 +37,7 @@ app.use(checkerRoutes);
 app.use(firRoutes);
 app.use(profileRoutes)
 app.use(callRoutes)
+app.use(lawyerRoutes);
 
 mongoose.connect('mongodb://localhost:27017/lawfirm')// MongoDB connection
     .then(() => console.log('Connected to MongoDB'))
