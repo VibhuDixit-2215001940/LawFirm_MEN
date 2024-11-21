@@ -16,7 +16,7 @@ router.post('/check', (req, res) => { // Route to handle eligibility check form 
         eligibilityMessage = "Sorry, you must be 18 or older to be eligible for bail.";
     } else if (Bail >= 10000) {
         isEligible = false;
-        eligibilityMessage = `Sorry, bails is not allowd for <%= Bail %> of amount`;
+        eligibilityMessage = `Sorry, bails is not allowd for ur amount`;
     } else if (!Offense || Offense.trim() === "") {
         isEligible = false;
         eligibilityMessage = `Offense type cannot be empty.`;
