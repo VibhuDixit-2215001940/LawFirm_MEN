@@ -31,7 +31,11 @@ const complaintSchema = new mongoose.Schema({
     submittedAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    status: {
+        type: String,
+        default: 'Pending', // 'Pending', 'Resolved'
+    },
 });
 const Complaint = mongoose.model('Complain', complaintSchema);
 module.exports = Complaint;

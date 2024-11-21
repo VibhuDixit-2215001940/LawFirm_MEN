@@ -65,4 +65,14 @@ router.get('/AdminLogout', (req, res) => {
         res.redirect('/');
     });
 });
+router.post('/Admin/resolve/:id', ensureAuthenticated, async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Complain.findByIdAndUpdate(id, { status: 'Resolved' });
+        res.redirect('/Admin');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
 module.exports = router;
