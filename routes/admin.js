@@ -49,9 +49,11 @@ router.post('/AdminLogin', async (req, res) => {
 router.get('/Admin', ensureAuthenticated, async (req, res) => {
     const userCount = await User.countDocuments();
     const complainCount = await Complain.countDocuments();
+    const complain = await Complain.find();
     const lawyerCount = await Lawyer.countDocuments();
     const lawyer = await Lawyer.find();
-    res.render('Admin/index.ejs',{userCount,complainCount,lawyerCount,lawyer});
+    const users = await User.find()
+    res.render('Admin/index.ejs',{users,userCount,complain,complainCount,lawyerCount,lawyer});
 });
 
 

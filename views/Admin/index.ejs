@@ -11,6 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        #feedbackList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        #feedbackList ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+    
+        #feedbackList ul li:last-child {
+            border-bottom: none;
+        }
+    </style>
+    
+    <style>
         /* Modal Background */
         .modal {
             display: none; /* Hidden by default */
@@ -60,8 +77,8 @@
             <ul>
                 <li><a href="/Admin"><i class="fa fa-desktop"></i> <span>Control</span></a></li>
                 <li><a href="https://qrcodeeeeeee.netlify.app/" target="_blank"><i class="fa fa-users"></i> <span>Generate</span></a></li>
-                <li><a href="#" onclick="openFeedbackModal()"><i class="fa fa-files-o"></i> <span>Feedback</span></a></li>
-                <li><a href="#"><i class="fa fa-flag-checkered"></i> <span>Events</span></a></li>
+                <li><a href="#" onclick="openFeedbackModal()"><i class="fa fa-files-o"></i> <span>Users</span></a></li>
+                <li><a href="#"><i class="fa fa-flag-checkered"></i> <span>Feedback</span></a></li>
                 <li><a href="#"><i class="fa fa-briefcase"></i> <span>Clients</span></a></li>
                 <li><a href="#"><i class="fa fa-cart-arrow-down"></i> <span>Orders</span></a></li>
                 <li><a href="#" onclick="openBidsModal()"><i class="fa fa-inr"></i> <span>Bids</span></a></li>
@@ -74,8 +91,18 @@
                 <div id="feedbackModal" class="modal">
                     <div class="modal-content">
                         <span class="close" onclick="closeFeedbackModal()">&times;</span>
-                        <h2>Feedback List</h2>
-                        <div id="feedbackList"></div>
+                        <h2>Users List</h2>
+                        <div id="feedbackList">
+                            <ul style="color: #000;">
+                                <% users.forEach(user => { %>
+                                    <li>
+                                        <strong>Name:</strong> <%= user.username %> 
+                                        | <strong>Email:</strong> <%= user.email %> 
+                                        | <strong>Last Login:</strong> <%= user.lastLogin.toString().substring(0, 28) || Date() %>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <li><a href="#" onclick="openMapModal()"><i class="fa fa-map"></i> <span>District Map</span></a></li>
@@ -137,7 +164,7 @@
             <div class="pro-table">
                 <div class="recent-project">
                     <div class="rec-pro-h">
-                        <h2>Ongoing Tasks</h2><p>(10)</p> <!-- Static value for now -->
+                        <h2>Ongoing FIR's</h2><p>(<%= complainCount %>)</p> <!-- Static value for now -->
                     </div>
             
                     <div class="see-all">
@@ -148,28 +175,26 @@
                 <table style="width:100%">
                     <tr>
                         <th>Complain ID</th>
-                        <th>Waste Type</th>
+                        <th>Username</th>
                         <th>Location</th>
-                        <th>Status</th>
+                        <th>Phone</th>
                     </tr>
+                    <% complain.forEach(cp => { %>
                     <tr>
-                        <td>1</td>
-                        <td>Plastic</td>
-                        <td>Mathura</td>
+                        <td><%= cp._id.toString().substring(0, 6) %></td>
+                        <td><%= cp.firstName %></td>
+                        <td><%= cp.address.substring(0,30) %></td>
                         <td>
-                            <span class="rev-span"></span>
-                            Ongoing
+                            <i class="fa fa-phone"> <%= cp.phone %></i>
                         </td>
                     </tr>
-                    <!-- Add more static rows as needed -->
+                    <% }); %>
                 </table>
-                
             </div>
-            
             <div class="pro-cus">
                 <div class="recent-project">
                     <div class="rec-pro-h">
-                        <h2>Lawyers</h2>
+                        <h2>Lawyers (<%= lawyerCount %>)</h2>
                     </div>
                     <table style="width:100%">
                         <tr>
@@ -191,6 +216,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
 
     <script>
