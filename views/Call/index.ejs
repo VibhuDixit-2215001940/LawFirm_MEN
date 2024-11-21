@@ -89,54 +89,17 @@
             <section class="services section container" id="services">
                 <h2 class="section__title">Top Lawyers<br>For You</h2>
                 <div class="services__container grid">
+                    <% lawyer.forEach(law => { %>
                     <div class="services__data">
-                        <h3 class="services__subtitle">Ajay Kumar</h3>
-                        <div><img src="/images/1.png" alt=""></div>
-                        <p class="services__description">Legal Consultations</p>
+                        <h3 class="services__subtitle"><%= law.caseWin === 10 && law.caseLoss === 0 ? law.username + " ✨" : law.username %></h3>
+                        <img src="<%= law.gender === 'M' ? '/images/2.png' : '/images/fe.png' %>" alt="">
+                        <p >Legal Consultations</p>
+                        <p>Wins: <%= law.caseWin %> / <%= law.caseWin+law.caseLoss %></p>
                         <div>
-                            <button class="button button-link">7500211114</button>
+                            <a href="/Payment"><button class="button button-link"><%= law.phone %></button></a>
                         </div>
                     </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Aditya Gupta</h3>
-                        <div><img src="/images/2.png" alt=""></div>
-                        <p class="services__description">Case Management</p>
-                        <div>
-                            <button class="button button-link">7500211114</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Arjun Mahajan</h3>
-                        <div><img src="/images/3.png" alt=""></div>
-                        <p class="services__description">Document Review</p>
-                        <div>
-                            <button class="button button-link">7500211114</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Arun Parmar</h3>
-                        <div><img src="/images/4.png" alt=""></div>
-                        <p class="services__description">Dispute Resolution</p>
-                        <div>
-                            <button class="button button-link">7500211114</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Bhanu Pratap</h3>
-                        <div><img src="/images/5.png" alt=""></div>
-                        <p class="services__description">Real Estate Transactions</p>
-                        <div>
-                            <button class="button button-link">7500211114</button>
-                        </div>
-                    </div>
-                    <div class="services__data">
-                        <h3 class="services__subtitle">Bheesam Sinha</h3>
-                        <div><img src="/images/6.png" alt=""></div>
-                        <p class="services__description">Family Law</p>
-                        <div>
-                            <button class="button button-link">7500211114</button>
-                        </div>
-                    </div>
+                    <% }); %>
                 </div>
             </section>
             
