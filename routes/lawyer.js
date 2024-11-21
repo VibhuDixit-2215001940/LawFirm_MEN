@@ -15,12 +15,14 @@ router.post('/Lawyer', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     try {const newLawyer = new Lawyer({username,email,caseWin,caseLoss,phone,password: hashedPassword,gender,address,lastLogin: new Date(),});
         await newLawyer.save();
-        return res.send('Success');
+        const eligibilityMessage = "You are registered successfully"
+        return res.render('Success/index.ejs',{eligibilityMessage});
     } catch (err) {
         console.error(err);
         if (err.code === 11000) {
             const duplicateKey = Object.keys(err.keyPattern)[0];
-            return res.send(`Duplicate entry for ${duplicateKey}`);
+            const eligibilityMessage = `Duplicate entry for ${duplicateKey}`;
+            return res.render('Success/fail.ejs',{eligibilityMessage});
         }
         return res.redirect('/Error');
     }
