@@ -188,10 +188,10 @@
                         <td>
                             <i class="fa fa-phone"> <%= cp.phone %></i>
                         </td>
-                        <td><%= c.status %></td>
+                        <td><%= cp.status || 'Pending' %></td>
                         <td>
-                            <% if (c.status === 'Pending') { %>
-                                <form action="/Admin/resolve/<%= c._id %>" method="POST">
+                            <% if (cp.status === 'Pending') { %>
+                                <form action="/Admin/resolve/<%= cp._id %>" method="POST">
                                     <button type="submit">Resolve</button>
                                 </form>
                             <% } else { %>
