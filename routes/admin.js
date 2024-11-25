@@ -80,4 +80,15 @@ router.post('/Admin/resolve/:id', ensureAuthenticated, async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+router.post('/Admin/delete/:id', async (req, res) => {
+    try {
+        const complaintId = req.params.id;
+        await Complain.findByIdAndDelete(complaintId);
+        res.redirect('/Admin');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error deleting complaint.");
+    }
+});
+
 module.exports = router;

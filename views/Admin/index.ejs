@@ -66,7 +66,19 @@
             text-decoration: none;
             cursor: pointer;
         }
+        button[type="submit"][style*="red"] {
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    button[type="submit"]:hover {
+        opacity: 0.8;
+    }
     </style>
+    
+    
 </head>
 <body>
     <section id="sidebar">
@@ -160,7 +172,7 @@
                     </div>
             
                     <div class="see-all">
-                        <button>See all</button>
+                        <button>See All</button>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -173,25 +185,27 @@
                         <th>Action</th>
                     </tr>
                     <% complain.forEach(cp => { %>
-                    <tr>
-                        <td><%= cp._id.toString().substring(0, 6) %></td>
-                        <td><%= cp.firstName %></td>
-                        <td><%= cp.address.substring(0,30) %></td>
-                        <td>
-                            <i class="fa fa-phone"> <%= cp.phone %></i>
-                        </td>
-                        <td><%= cp.status || 'Pending' %></td>
-                        <td>
-                            <% if (cp.status === 'Pending') { %>
-                                <form action="/Admin/resolve/<%= cp._id %>" method="POST">
-                                    <button type="submit">Resolve</button>
-                                </form>
-                            <% } else { %>
-                                Resolved
-                            <% } %>
-                        </td>
-                    </tr>
-                    <% }); %>
+                        <tr>
+                            <td><%= cp._id.toString().substring(0, 6) %></td>
+                            <td><%= cp.firstName %></td>
+                            <td><%= cp.address.substring(0,30) %></td>
+                            <td>
+                                <i class="fa fa-phone"> <%= cp.phone %></i>
+                            </td>
+                            <td><%= cp.status || 'Pending' %></td>
+                            <td>
+                                <% if (cp.status === 'Resolved') { %>
+                                    <form action="/Admin/delete/<%= cp._id %>" method="POST">
+                                        <button type="submit" style="background: red; color: white;">Delete</button>
+                                    </form>
+                                <% } else { %>
+                                    <form action="/Admin/resolve/<%= cp._id %>" method="POST">
+                                        <button type="submit">Resolve</button>
+                                    </form>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <% }); %>                        
                 </table>
             </div>
             <div class="pro-cus">
