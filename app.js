@@ -31,6 +31,11 @@ app.use(express.urlencoded({ extended: true }));  // Use express.urlencoded to p
 app.use(bodyParser.json());  // Parse JSON data
 
 
+app.get('/', (req, res) => {// Render home page
+    res.render('home/index');  
+});
+
+
 app.use(loginRoutes);// Use routes
 app.use(adminRoutes)
 app.use(checkerRoutes);  
@@ -42,11 +47,6 @@ app.use(lawyerRoutes);
 mongoose.connect('mongodb://localhost:27017/lawfirm')// MongoDB connection
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
-
-
-app.get('/', (req, res) => {// Render home page
-    res.render('home/index');  
-});
 
 
 app.get('/Error', (req, res) => {// 404 route

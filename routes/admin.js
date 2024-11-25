@@ -77,7 +77,7 @@ router.post('/Admin/resolve/:id', ensureAuthenticated, async (req, res) => {
         res.redirect('/Admin');
     } catch (err) {
         console.error(err);
-        res.status(500).send('Internal Server Error');
+        res.render('404/index')
     }
 });
 router.post('/Admin/delete/:id', async (req, res) => {
@@ -87,7 +87,7 @@ router.post('/Admin/delete/:id', async (req, res) => {
         res.redirect('/Admin');
     } catch (err) {
         console.error(err);
-        res.status(500).send("Error deleting complaint.");
+        res.render('404/index')
     }
 });
 

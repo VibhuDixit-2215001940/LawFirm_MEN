@@ -226,10 +226,16 @@
                                     <span class="rev-span">&nbsp;&nbsp;&nbsp;<%= user.caseWin %>/<%= user.caseLoss+user.caseWin %></span>
                                     <span class="green-dot"></span>
                                 </td>
-                                <td class="cnt-info-td">&nbsp;&nbsp;&nbsp;<i class="fa fa-phone"><%= user.phone %></i></td>
+                                <td class="cnt-info-td">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="tel:<%= user.phone %>" style="color: red;">
+                                        <i class="fa fa-phone"></i> <%= user.phone %>
+                                    </a>
+                                </td>
                             </tr>
                         <% }); %>
                     </table>
+                    
                 </div>
             </div>
         </div>

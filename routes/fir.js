@@ -18,7 +18,7 @@ router.post('/FIR', async (req, res) => {
         res.render('Thanks/index.ejs',{newComplaint});
     } catch (err) {
         console.log(err)
-        res.status(500).send('Server Error');
+        res.render('404/index')
     }
 });
 module.exports = router;
