@@ -16,7 +16,7 @@ const callRoutes = require('./routes/call');
 const lawyerRoutes = require('./routes/lawyer');
 
 app.use(session({// Session middleware should be initialized before routes
-    secret: 'secret_key',
+    secret: process.env.SESSION_SECRET || 'secret_key',
     resave: false,
     saveUninitialized: true,
 }));
@@ -44,7 +44,7 @@ app.use(profileRoutes)
 app.use(callRoutes)
 app.use(lawyerRoutes);
 
-mongoose.connect('mongodb://localhost:27017/lawfirm')// MongoDB connection
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/lawfirm')// MongoDB connection
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
@@ -59,6 +59,10 @@ app.get('*', (req, res) => {// 404 route
 });
 
 
-app.listen(8000, () => {// Start the server
-    console.log("Listening at port 8000!");
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(8000, () => {// Start the server
+        console.log("Listening at port 8000!");
+    });
+}
+
+module.exports = app;

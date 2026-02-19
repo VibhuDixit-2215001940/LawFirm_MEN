@@ -126,8 +126,7 @@
     <section id="main-content">
         <header>
             <div class="header-left">
-                <h2 class="toggle-btn">Sanjay Palace
-                </h2>
+                <h2 class="toggle-btn"><i class="fa fa-bars" id="toggle-sidebar" style="margin-right: 10px; cursor: pointer;"></i> Sanjay Palace</h2>
             </div>
             <div class="header-left header-serach">
                 <form action="/Admin" method="GET" class="serach-par">
@@ -176,65 +175,69 @@
                     </div>
                     <div class="clear"></div>
                 </div>
-                <table style="width:100%">
-                    <tr>
-                        <th>Complain ID</th>
-                        <th>Username</th>
-                        <th>Location</th>
-                        <th>Phone</th>
-                        <th>Action</th>
-                    </tr>
-                    <% complain.forEach(cp => { %>
+                <div class="table-responsive">
+                    <table style="width:100%">
                         <tr>
-                            <td><%= cp._id.toString().substring(0, 6) %></td>
-                            <td><%= cp.firstName %></td>
-                            <td><%= cp.address.substring(0,30) %></td>
-                            <td>
-                                <i class="fa fa-phone"> <%= cp.phone %></i>
-                            </td>
-                            <td><%= cp.status || 'Pending' %></td>
-                            <td>
-                                <% if (cp.status === 'Resolved') { %>
-                                    <form action="/Admin/delete/<%= cp._id %>" method="POST">
-                                        <button type="submit" style="background: red; color: white;">Delete</button>
-                                    </form>
-                                <% } else { %>
-                                    <form action="/Admin/resolve/<%= cp._id %>" method="POST">
-                                        <button type="submit">Resolve</button>
-                                    </form>
-                                <% } %>
-                            </td>
+                            <th>Complain ID</th>
+                            <th>Username</th>
+                            <th>Location</th>
+                            <th>Phone</th>
+                            <th>Action</th>
                         </tr>
-                        <% }); %>                        
-                </table>
+                        <% complain.forEach(cp => { %>
+                            <tr>
+                                <td><%= cp._id.toString().substring(0, 6) %></td>
+                                <td><%= cp.firstName %></td>
+                                <td><%= cp.address.substring(0,30) %></td>
+                                <td>
+                                    <i class="fa fa-phone"> <%= cp.phone %></i>
+                                </td>
+                                <td><%= cp.status || 'Pending' %></td>
+                                <td>
+                                    <% if (cp.status === 'Resolved') { %>
+                                        <form action="/Admin/delete/<%= cp._id %>" method="POST">
+                                            <button type="submit" style="background: red; color: white;">Delete</button>
+                                        </form>
+                                    <% } else { %>
+                                        <form action="/Admin/resolve/<%= cp._id %>" method="POST">
+                                            <button type="submit">Resolve</button>
+                                        </form>
+                                    <% } %>
+                                </td>
+                            </tr>
+                            <% }); %>                        
+                    </table>
+                </div>
             </div>
             <div class="pro-cus">
                 <div class="recent-project">
                     <div class="rec-pro-h">
                         <h2>Lawyers (<%= lawyerCount %>)</h2>
                     </div>
-                    <table style="width:100%">
-                        <tr>
-                            <th>Name</th>
-                            <th>Wins</th>
-                            <th>&nbsp;&nbsp;&nbsp;Contact</th>
-                        </tr>
-                        <% lawyer.forEach(user => { %>
+                    <div class="table-responsive">
+                        <table style="width:100%">
                             <tr>
-                                <td><%= user.username %> [<%= user.gender %>]</td> <!-- Adjust gender if needed -->
-                                <td>
-                                    <span class="rev-span">&nbsp;&nbsp;&nbsp;<%= user.caseWin %>/<%= user.caseLoss+user.caseWin %></span>
-                                    <span class="green-dot"></span>
-                                </td>
-                                <td class="cnt-info-td">
-                                    &nbsp;&nbsp;&nbsp;
-                                    <a href="tel:<%= user.phone %>" style="color: red;">
-                                        <i class="fa fa-phone"></i> <%= user.phone %>
-                                    </a>
-                                </td>
+                                <th>Name</th>
+                                <th>Wins</th>
+                                <th>&nbsp;&nbsp;&nbsp;Contact</th>
                             </tr>
-                        <% }); %>
-                    </table>
+                            <% lawyer.forEach(user => { %>
+                                <tr>
+                                    <td><%= user.username %> [<%= user.gender %>]</td> <!-- Adjust gender if needed -->
+                                    <td>
+                                        <span class="rev-span">&nbsp;&nbsp;&nbsp;<%= user.caseWin %>/<%= user.caseLoss+user.caseWin %></span>
+                                        <span class="green-dot"></span>
+                                    </td>
+                                    <td class="cnt-info-td">
+                                        &nbsp;&nbsp;&nbsp;
+                                        <a href="tel:<%= user.phone %>" style="color: red;">
+                                            <i class="fa fa-phone"></i> <%= user.phone %>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </table>
+                    </div>
                     
                 </div>
             </div>
@@ -269,6 +272,25 @@
         function closeMapModal() {
             document.getElementById("mapModal").style.display = "none";
         }
+
+        // Sidebar Toggle
+        const toggleBtn = document.getElementById('toggle-sidebar');
+        const sidebar = document.getElementById('sidebar');
+
+        toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            const isClickInsideSidebar = sidebar.contains(e.target);
+            const isClickOnToggle = toggleBtn.contains(e.target);
+
+            if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>

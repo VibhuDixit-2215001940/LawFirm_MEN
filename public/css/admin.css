@@ -104,7 +104,7 @@ header {
     box-shadow: 10px 10px 20px #ccc;
     width: 100%;
     position: fixed;
-    z-index: 10;	
+    z-index: 10;
 }
 
 .header-left {
@@ -139,10 +139,11 @@ h2.cus-num {
     position: relative;
 }
 
-td:hover{
+td:hover {
     cursor: pointer;
     background-color: #ccc;
-  }
+}
+
 h2.cus-comp:after {
     position: absolute;
     content: "\f0c5";
@@ -156,12 +157,14 @@ h2.cus-ord:after {
     font-family: "FONTAWESOME";
     right: 0;
 }
+
 h2.cus-bid:after {
     position: absolute;
     content: "\f156";
     font-family: "FONTAWESOME";
     right: 0;
 }
+
 h2.cus-eve:after {
     position: absolute;
     content: "\f11e";
@@ -182,14 +185,14 @@ h2.cus-eve:after {
 }
 
 .search:focus {
-    border: 2px solid  rgb(127, 241, 82);
+    border: 2px solid rgb(127, 241, 82);
     border-radius: 20px;
     outline: none;
     width: 95%;
 }
 
 i.fa.fa-search {
-    background-color:  rgba(179, 230, 122);
+    background-color: rgba(179, 230, 122);
     color: #fff;
     width: 33px;
     height: 36px;
@@ -307,87 +310,102 @@ td.cnt-info-td i {
     padding-right: 8px;
 }
 
-
-@media screen and (max-width :768px) {
-
+/* Responsive Styles - Ver 1.1 */
+@media screen and (max-width: 768px) {
     section#sidebar {
-        width: 16%;
+        width: 250px;
+        left: -250px;
+        /* Hide by default on mobile */
+        transition: left 0.3s ease;
+    }
+
+    section#sidebar.active {
+        left: 0;
+        /* Show when active */
     }
 
     section#main-content {
-        width: 84%;
-    }
-
-    .sidebar-menu ul li a {
-        padding: 10px 22px;
-    }
-
-    .sidebar-brand span {
-        display: none;
-    }
-
-	.sidebar-menu li span {
-        display: none;
-    }
-
-    .sidebar-brand h2 {
-        font-size: 14px;
-    }
-
-    .sidebar-brand {
-        padding: 20px 20px 0px 20px;
-    }
-
-    .card {
         width: 100%;
         float: none;
-        margin: 0 auto 20px auto;
-        padding: 10px 20px;
-    }
-
-    .main-content-info {
-        margin-top: 130px;
-    }
-
-    h2.cus-num:after {
-        top: 10px;
-    }
-
-    .pro-table {
-        float: none;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .pro-cus {
-        float: none;
-        width: 100%;
-        margin: 20px auto;
-    }
-
-    table td {
-        font-size: 14px;
-    }
-
-    .rec-pro-h h2 {
-        font-size: 18px;
-    }
-
-    .see-all button {
-        width: 50px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 11px;
-    }
-
-
-    .header-left.header-serach {
-        display: none;
     }
 
     .header-left {
-        float: left;
-        width: 50%;
+        width: 100%;
+        float: none;
+        padding: 10px 20px;
+        text-align: center;
     }
 
+    .header-left.header-serach {
+        display: none;
+        /* Hide search on mobile by default or re-position */
+    }
+
+    .header-left.header-profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid #eee;
+    }
+
+    .header-left.header-profile img {
+        width: 40px;
+        margin-right: 10px;
+        float: none;
+    }
+
+    .toggle-btn {
+        display: inline-block;
+        float: left;
+        font-size: 24px;
+        margin-right: 15px;
+    }
+
+    .main-content-info {
+        margin-top: 180px;
+        /* More space for stacked header */
+    }
+
+    .card {
+        width: 95%;
+        margin: 10px auto;
+        float: none;
+    }
+
+    .content-pro-par {
+        margin-top: 20px;
+    }
+
+    .pro-table,
+    .pro-cus {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    .sidebar-menu ul li a {
+        padding: 15px 30px;
+    }
+
+    .sidebar-brand span,
+    .sidebar-menu li span {
+        display: inline;
+        /* Keep text on mobile sidebar */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-content-info {
+        margin-top: 210px;
+    }
 }
