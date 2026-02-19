@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>न्यायसाधन - Admin</title>
     <link rel="shortcut icon" href="/images/logo44.png" type="image/x-icon">
-    <link type="text/css" rel="stylesheet" href="css/admin.css">
+    <link type="text/css" rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
@@ -15,22 +16,23 @@
             list-style-type: none;
             padding: 0;
         }
-    
+
         #feedbackList ul li {
             padding: 8px 0;
             border-bottom: 1px solid #ddd;
             text-align: left;
         }
-    
+
         #feedbackList ul li:last-child {
             border-bottom: none;
         }
     </style>
-    
+
     <style>
         /* Modal Background */
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -38,9 +40,10 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with opacity */
         }
-        
+
         /* Modal Content */
         .modal-content {
             background-color: #fefefe;
@@ -51,7 +54,7 @@
             max-width: 700px;
             text-align: center;
         }
-        
+
         /* Close Button */
         .close {
             color: #aaa;
@@ -59,27 +62,29 @@
             font-size: 28px;
             font-weight: bold;
         }
-        
+
         .close:hover,
         .close:focus {
             color: #000;
             text-decoration: none;
             cursor: pointer;
         }
+
         button[type="submit"][style*="red"] {
-        border: none;
-        padding: 8px 12px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    
-    button[type="submit"]:hover {
-        opacity: 0.8;
-    }
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button[type="submit"]:hover {
+            opacity: 0.8;
+        }
     </style>
-    
-    
+
+
 </head>
+
 <body>
     <section id="sidebar">
         <div class="sidebar-brand">
@@ -88,7 +93,8 @@
         <div class="sidebar-menu">
             <ul>
                 <li><a href="/Admin"><i class="fa fa-desktop"></i> <span>Control</span></a></li>
-                <li><a href="https://qrcodeeeeeee.netlify.app/" target="_blank"><i class="fa fa-users"></i> <span>Generate</span></a></li>
+                <li><a href="https://qrcodeeeeeee.netlify.app/" target="_blank"><i class="fa fa-users"></i>
+                        <span>Generate</span></a></li>
                 <li><a href="#" onclick="openFeedbackModal()"><i class="fa fa-files-o"></i> <span>Users</span></a></li>
                 <li><a href="#"><i class="fa fa-flag-checkered"></i> <span>Feedback</span></a></li>
                 <li><a href="#"><i class="fa fa-briefcase"></i> <span>Clients</span></a></li>
@@ -106,18 +112,22 @@
                         <h2>Users List</h2>
                         <div id="feedbackList">
                             <ul style="color: #000;">
-                                <% users.forEach(user => { %>
+                                <% users.forEach(user=> { %>
                                     <li>
-                                        <strong>Name:</strong> <%= user.username %> 
-                                        | <strong>Email:</strong> <%= user.email %> 
-                                        | <strong>Last Login:</strong> <%= user.lastLogin.toString().substring(0, 28) || Date() %>
+                                        <strong>Name:</strong>
+                                        <%= user.username %>
+                                            | <strong>Email:</strong>
+                                            <%= user.email %>
+                                                | <strong>Last Login:</strong>
+                                                <%= user.lastLogin.toString().substring(0, 28) || Date() %>
                                     </li>
-                                <% }); %>
+                                    <% }); %>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <li><a href="https://swachhbharatmission.gov.in/SBMGUPLOAD/writereaddata/Portal/Marquee/File/d96f153d-a_SBM_G__Ph-2_Guidelines_-_Hindi.pdf" target="_blank"><i class="fa fa-book"></i> <span>Documents</span></a></li>
+                <li><a href="https://swachhbharatmission.gov.in/SBMGUPLOAD/writereaddata/Portal/Marquee/File/d96f153d-a_SBM_G__Ph-2_Guidelines_-_Hindi.pdf"
+                        target="_blank"><i class="fa fa-book"></i> <span>Documents</span></a></li>
                 <li><a href="/AdminLogout"><i class="fa fa-sign-out"></i> <span>Log out</span></a></li>
             </ul>
         </div>
@@ -126,34 +136,41 @@
     <section id="main-content">
         <header>
             <div class="header-left">
-                <h2 class="toggle-btn"><i class="fa fa-bars" id="toggle-sidebar" style="margin-right: 10px; cursor: pointer;"></i> Sanjay Palace</h2>
+                <h2 class="toggle-btn"><i class="fa fa-bars" id="toggle-sidebar"
+                        style="margin-right: 10px; cursor: pointer;"></i> Sanjay Palace</h2>
             </div>
             <div class="header-left header-serach">
                 <form action="/Admin" method="GET" class="serach-par">
                     <input class="search" type="text" name="search" placeholder="Search by FIR loaction or name">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                </form>                
-            </div>            
+                </form>
+            </div>
             <div class="header-left header-profile">
-                <img src="images/user.png" class="img-responsive" />
+                <img src="/images/user.png" class="img-responsive" />
                 <h3>Admin Name</h3> <!-- Static value for now -->
                 <p>Last Login: 2024-11-14</p> <!-- Static value for now -->
             </div>
             <div class="clear"></div>
         </header>
-        
+
         <div class="clear"></div>
         <div class="main-content-info container">
             <div class="card">
-                <h2 class="cus-num cus-comp"><%= complainCount %></h2> <!-- Static value for now -->
+                <h2 class="cus-num cus-comp">
+                    <%= complainCount %>
+                </h2> <!-- Static value for now -->
                 <p>Active FIRs</p>
             </div>
             <div class="card">
-                <h2 class="cus-num cus-ord"><%= userCount %></h2> <!-- Static value for now -->
+                <h2 class="cus-num cus-ord">
+                    <%= userCount %>
+                </h2> <!-- Static value for now -->
                 <p>Total Users</p>
             </div>
             <div class="card">
-                <h2 class="cus-num cus-bid"><%= lawyerCount %></h2> <!-- Static value for now -->
+                <h2 class="cus-num cus-bid">
+                    <%= lawyerCount %>
+                </h2> <!-- Static value for now -->
                 <p>Active Lawyers</p>
             </div>
             <div class="card">
@@ -167,9 +184,10 @@
             <div class="pro-table">
                 <div class="recent-project">
                     <div class="rec-pro-h">
-                        <h2>Ongoing FIR's</h2><p>(<%= complainCount %>)</p> <!-- Static value for now -->
+                        <h2>Ongoing FIR's</h2>
+                        <p>(<%= complainCount %>)</p> <!-- Static value for now -->
                     </div>
-            
+
                     <div class="see-all">
                         <button>See All</button>
                     </div>
@@ -184,28 +202,38 @@
                             <th>Phone</th>
                             <th>Action</th>
                         </tr>
-                        <% complain.forEach(cp => { %>
+                        <% complain.forEach(cp=> { %>
                             <tr>
-                                <td><%= cp._id.toString().substring(0, 6) %></td>
-                                <td><%= cp.firstName %></td>
-                                <td><%= cp.address.substring(0,30) %></td>
                                 <td>
-                                    <i class="fa fa-phone"> <%= cp.phone %></i>
+                                    <%= cp._id.toString().substring(0, 6) %>
                                 </td>
-                                <td><%= cp.status || 'Pending' %></td>
                                 <td>
-                                    <% if (cp.status === 'Resolved') { %>
+                                    <%= cp.firstName %>
+                                </td>
+                                <td>
+                                    <%= cp.address.substring(0,30) %>
+                                </td>
+                                <td>
+                                    <i class="fa fa-phone">
+                                        <%= cp.phone %>
+                                    </i>
+                                </td>
+                                <td>
+                                    <%= cp.status || 'Pending' %>
+                                </td>
+                                <td>
+                                    <% if (cp.status==='Resolved' ) { %>
                                         <form action="/Admin/delete/<%= cp._id %>" method="POST">
                                             <button type="submit" style="background: red; color: white;">Delete</button>
                                         </form>
-                                    <% } else { %>
-                                        <form action="/Admin/resolve/<%= cp._id %>" method="POST">
-                                            <button type="submit">Resolve</button>
-                                        </form>
-                                    <% } %>
+                                        <% } else { %>
+                                            <form action="/Admin/resolve/<%= cp._id %>" method="POST">
+                                                <button type="submit">Resolve</button>
+                                            </form>
+                                            <% } %>
                                 </td>
                             </tr>
-                            <% }); %>                        
+                            <% }); %>
                     </table>
                 </div>
             </div>
@@ -221,28 +249,32 @@
                                 <th>Wins</th>
                                 <th>&nbsp;&nbsp;&nbsp;Contact</th>
                             </tr>
-                            <% lawyer.forEach(user => { %>
+                            <% lawyer.forEach(user=> { %>
                                 <tr>
-                                    <td><%= user.username %> [<%= user.gender %>]</td> <!-- Adjust gender if needed -->
                                     <td>
-                                        <span class="rev-span">&nbsp;&nbsp;&nbsp;<%= user.caseWin %>/<%= user.caseLoss+user.caseWin %></span>
+                                        <%= user.username %> [<%= user.gender %>]
+                                    </td> <!-- Adjust gender if needed -->
+                                    <td>
+                                        <span class="rev-span">&nbsp;&nbsp;&nbsp;<%= user.caseWin %>/<%=
+                                                    user.caseLoss+user.caseWin %></span>
                                         <span class="green-dot"></span>
                                     </td>
                                     <td class="cnt-info-td">
                                         &nbsp;&nbsp;&nbsp;
                                         <a href="tel:<%= user.phone %>" style="color: red;">
-                                            <i class="fa fa-phone"></i> <%= user.phone %>
+                                            <i class="fa fa-phone"></i>
+                                            <%= user.phone %>
                                         </a>
                                     </td>
                                 </tr>
-                            <% }); %>
+                                <% }); %>
                         </table>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <script>
@@ -277,13 +309,13 @@
         const toggleBtn = document.getElementById('toggle-sidebar');
         const sidebar = document.getElementById('sidebar');
 
-        toggleBtn.addEventListener('click', function(e) {
+        toggleBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             sidebar.classList.toggle('active');
         });
 
         // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             const isClickInsideSidebar = sidebar.contains(e.target);
             const isClickOnToggle = toggleBtn.contains(e.target);
 
@@ -293,4 +325,5 @@
         });
     </script>
 </body>
+
 </html>
